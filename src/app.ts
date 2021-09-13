@@ -29,8 +29,8 @@ app.get('/', (req: Request, res: Response) => {
   res.send(`Welcome to api \n ${menu}`);
 });
 
-    app.use(cors());
-    app.use(swaggerstats);
+app.use(cors());
+app.use(swaggerstats);
 app.use('/api/v1', route);
 
 createConnection(dbConfig)
