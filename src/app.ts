@@ -4,6 +4,7 @@ import 'reflect-metadata';
 import cors from 'cors';
 
 import express, { Request, Response } from 'express';
+import bodyParser from 'body-parser';
 import { dbConfig } from './utils/dbConfig';
 import { createConnection } from 'typeorm';
 import route from './api/route';
@@ -30,6 +31,8 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 app.use(cors());
+// app.use(bodyParser.urlencoded({extended: true}))
+app.use(express.json());
 app.use(swaggerstats);
 app.use('/api/v1', route);
 
